@@ -11,7 +11,7 @@
  */
 
 CREATE TABLE Entity1(
-    Prema   char(10)    NULL
+    PremaVarshini   char(10)    NULL
 )
 
 go

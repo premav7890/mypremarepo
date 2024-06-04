@@ -11,7 +11,7 @@
  */
 
 CREATE TABLE Entity1(
-    A    char(10)    NULL
+    Prema   char(10)    NULL
 )
 
 go

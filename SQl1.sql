@@ -11,7 +11,7 @@
  */
 
 CREATE TABLE Entity1(
-    PremaVarshini   char(10)    NULL
+    PremaVarshiniConflictTest   char(10)    NULL
 )
 
 go

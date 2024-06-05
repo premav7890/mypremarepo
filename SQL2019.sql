@@ -11,11 +11,11 @@
  */
 
 CREATE TABLE Entity1(
-    testA    char(10)    NULL,
-    testB    char(10)    NULL,
-    testC    char(10)    NULL,
-    testD    char(10)    NULL,
-    testE    char(10)    NULL
+    testA1    char(10)    NULL,
+    testB1    char(10)    NULL,
+    testC1   char(10)    NULL,
+    testD1    char(10)    NULL,
+    testE1    char(10)    NULL
 )
 
 go

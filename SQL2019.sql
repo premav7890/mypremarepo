@@ -11,7 +11,7 @@
  */
 
 CREATE TABLE Entity1(
-    testA1    char(10)    NULL,
+    testA1varshini    char(10)    NULL,
     testB1    char(10)    NULL,
     testC1   char(10)    NULL,
     testD1    char(10)    NULL,

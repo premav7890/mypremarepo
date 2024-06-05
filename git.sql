@@ -1,22 +1,25 @@
 /*
  * ER/Studio Data Architect SQL Code Generation
- * Project :      computed1.DM1
+ * Project :      DATA MODEL
  *
- * Date Created : Friday, May 31, 2024 18:30:53
- * Target DBMS : Databricks
+ * Date Created : Wednesday, June 05, 2024 13:02:26
+ * Target DBMS : Microsoft SQL Server 2019
  */
 
 /* 
  * TABLE: Entity1 
  */
 
-CREATE TABLE Entity1
-(
-    testA    string,
-    testB    string,
-    testC    string,
-    testD    string,
-    testE    string
+CREATE TABLE Entity1(
+    A    char(10)    NULL
 )
-;
+
+go
+
+
+IF OBJECT_ID('Entity1') IS NOT NULL
+    PRINT '<<< CREATED TABLE Entity1 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE Entity1 >>>'
+go
 

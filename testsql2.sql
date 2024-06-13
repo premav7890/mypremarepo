@@ -2,7 +2,7 @@
  * ER/Studio Data Architect SQL Code Generation
  * Project :      library database.dm1
  *
- * Date Created : Thursday, June 13, 2024 18:09:05
+ * Date Created : Thursday, June 13, 2024 18:12:02
  * Target DBMS : Microsoft SQL Server 2019
  */
 
@@ -29,10 +29,10 @@ ELSE
 go
 
 /* 
- * TABLE: book 
+ * TABLE: book1 
  */
 
-CREATE TABLE book(
+CREATE TABLE book1(
     title             varchar(300)    NOT NULL,
     author            varchar(200)    NOT NULL,
     available         bit             NULL,
@@ -46,10 +46,10 @@ CREATE TABLE book(
 go
 
 
-IF OBJECT_ID('book') IS NOT NULL
-    PRINT '<<< CREATED TABLE book >>>'
+IF OBJECT_ID('book1') IS NOT NULL
+    PRINT '<<< CREATED TABLE book1 >>>'
 ELSE
-    PRINT '<<< FAILED CREATING TABLE book >>>'
+    PRINT '<<< FAILED CREATING TABLE book1 >>>'
 go
 
 /* 

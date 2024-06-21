@@ -1,29 +1,50 @@
 /*
  * ER/Studio Data Architect SQL Code Generation
- * Project :      computed1.DM1
+ * Project :      Example_synapse_test_1.DM1
  *
- * Date Created : Wednesday, June 05, 2024 16:01:41
+ * Date Created : Friday, June 21, 2024 18:22:44
  * Target DBMS : Microsoft SQL Server 2019
  */
 
 /* 
- * TABLE: Entity1 
+ * TABLE: Customer 
  */
 
-CREATE TABLE Entity1(
-    testA1varshini    char(10)    NULL,
-    testB1    char(10)    NULL,
-    testC1   char(10)    NULL,
-    testD1    char(10)    NULL,
-    testE1    char(10)    NULL
+CREATE TABLE Customer(
+    CustomerID    int             NOT NULL,
+    FirstName     nvarchar(10)    NULL,
+    LastName      nvarchar(10)    NULL,
+    Email         nvarchar(10)    NULL,
+    CONSTRAINT PK1 PRIMARY KEY NONCLUSTERED (CustomerID)
 )
 
 go
 
 
-IF OBJECT_ID('Entity1') IS NOT NULL
-    PRINT '<<< CREATED TABLE Entity1 >>>'
+IF OBJECT_ID('Customer') IS NOT NULL
+    PRINT '<<< CREATED TABLE Customer >>>'
 ELSE
-    PRINT '<<< FAILED CREATING TABLE Entity1 >>>'
+    PRINT '<<< FAILED CREATING TABLE Customer >>>'
+go
+
+/* 
+ * TABLE: Order 
+ */
+
+CREATE TABLE Order(
+    OrderID        int               NOT NULL,
+    CustomerID     int               NOT NULL,
+    OrderDate      datetime          NULL,
+    TotalAmount    decimal(18, 2)    NULL,
+    CONSTRAINT PK2 PRIMARY KEY NONCLUSTERED (OrderID, CustomerID)
+)
+
+go
+
+
+IF OBJECT_ID('Order') IS NOT NULL
+    PRINT '<<< CREATED TABLE Order >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE Order >>>'
 go
 

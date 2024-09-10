@@ -2,7 +2,7 @@
 -- ER/Studio Data Architect SQL Code Generation
 -- Project :      NewHybrid10th.DM1
 --
--- Date Created : Tuesday, September 10, 2024 16:28:06
+-- Date Created : Tuesday, September 10, 2024 16:29:36
 -- Target DBMS : Snowflake
 --
 
@@ -14,18 +14,6 @@ CREATE SEQUENCE PVSCHEMA."seq"
     START WITH 1
     INCREMENT BY 1
 ;
-
-
--- 
--- TABLE: "new" 
---
-
-CREATE HYBRID TABLE "new"(
-    "A"  CHAR(10),
-    CONSTRAINT "PK28" PRIMARY KEY ("A") ENFORCED 
-)
-;
-
 
 
 -- 

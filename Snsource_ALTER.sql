@@ -1,27 +1,7 @@
 
 -- Drop Other Constraints SQL
 
-ALTER TABLE "ST1"
-   DROP PRIMARY KEY
-
-;
-ALTER TABLE "ST4"
-   DROP PRIMARY KEY
-
-;
-ALTER TABLE "ST6"
-   DROP PRIMARY KEY
-
-;
-ALTER TABLE "ST5"
-   DROP PRIMARY KEY
-
-;
-ALTER TABLE "ST3"
-   DROP PRIMARY KEY
-
-;
-ALTER TABLE "ST2"
+ALTER TABLE "Entity1"
    DROP PRIMARY KEY
 
 ;
@@ -29,253 +9,39 @@ ALTER TABLE "ST2"
 -- Drop Constraint, Rename and Create Table SQL
 
 
-ALTER TABLE "ST1"
-    RENAME TO "ST1_bbc0523e"
+ALTER TABLE "Entity1"
+    RENAME TO "Entity1_c4506822"
 
 ;
 
-CREATE HYBRID TABLE "ST1"
+CREATE HYBRID TABLE "Entity1"
 (
-    "TEST" char(10)  NOT NULL,
-    "NO1"  char(10),
-    "COL1" char(10)  NOT NULL,
-    "COL2" char(10)  NOT NULL,
-    CONSTRAINT "PK6" PRIMARY KEY ("TEST", "COL1", "COL2")
+    "B"   char(10)    NOT NULL,
+    test1 char(10),
+    test3 string(10),
+    test4 char(10),
+    CONSTRAINT "PK1" PRIMARY KEY ("B")  ENFORCED INITIALLY IMMEDIATE ENABLE VALIDATE 
 )
 
 ;
 
-INSERT INTO "ST1"
-( "TEST",
-  "NO1",
-  "COL1",
-  "COL2" ) 
+INSERT INTO "Entity1"
+( "B",
+  test1 ) 
 SELECT
-"TEST",
-"NO1",
-"COL1",
-"COL2"
-FROM "ST1_bbc0523e"
+"B",
+test1
+FROM "Entity1_c4506822"
 
 ;
 
-DROP TABLE "ST1_bbc0523e"
-
-;
-
-ALTER TABLE "ST4"
-    RENAME TO "ST4_04f64de8"
-
-;
-
-CREATE HYBRID TABLE "ST4"
-(
-    "WAREHOUSE" char(10)  NOT NULL,
-    "VENDOR"    char(10),
-    "TEST"      char(10)  NOT NULL,
-    "COL1"      char(10)  NOT NULL,
-    "COL2"      char(10)  NOT NULL,
-    CONSTRAINT "PK2" PRIMARY KEY ("WAREHOUSE"),
-    FOREIGN KEY ("TEST", "COL1", "COL2")
-    REFERENCES "ST1"("TEST", "COL1", "COL2")
-)
-
-;
-
-INSERT INTO "ST4"
-( "WAREHOUSE",
-  "VENDOR",
-  "TEST",
-  "COL1",
-  "COL2" ) 
-SELECT
-"WAREHOUSE",
-"VENDOR",
-"TEST",
-"COL1",
-"COL2"
-FROM "ST4_04f64de8"
-
-;
-
-DROP TABLE "ST4_04f64de8"
-
-;
-
-ALTER TABLE "ST6"
-    RENAME TO "ST6_5079b54a"
-
-;
-
-CREATE HYBRID TABLE "ST6"
-(
-    "STOCKS"    char(10)  NOT NULL,
-    "WAREHOUSE" char(10),
-    CONSTRAINT "PK5" PRIMARY KEY ("STOCKS"),
-    CONSTRAINT "CON4" FOREIGN KEY ("WAREHOUSE")
-    REFERENCES "ST4"("WAREHOUSE")
-)
-
-;
-
-INSERT INTO "ST6"
-( "STOCKS",
-  "WAREHOUSE" ) 
-SELECT
-"STOCKS",
-"WAREHOUSE"
-FROM "ST6_5079b54a"
-
-;
-
-DROP TABLE "ST6_5079b54a"
-
-;
-
-ALTER TABLE "ST5"
-    RENAME TO "ST5_b90c52fe"
-
-;
-
-CREATE HYBRID TABLE "ST5"
-(
-    "INVENTORY" char(10)  NOT NULL,
-    "WAREHOUSE" char(10),
-    CONSTRAINT "PK4" PRIMARY KEY ("INVENTORY"),
-    CONSTRAINT "CON3" FOREIGN KEY ("WAREHOUSE")
-    REFERENCES "ST4"("WAREHOUSE")
-)
-
-;
-
-INSERT INTO "ST5"
-( "INVENTORY",
-  "WAREHOUSE" ) 
-SELECT
-"INVENTORY",
-"WAREHOUSE"
-FROM "ST5_b90c52fe"
-
-;
-
-DROP TABLE "ST5_b90c52fe"
-
-;
-
-ALTER TABLE "ST3"
-    RENAME TO "ST3_d2b4f8e4"
-
-;
-
-CREATE HYBRID TABLE "ST3"
-(
-    "TEST" char(10),
-    "COL1" char(10),
-    "COL2" char(10),
-    "NO7"  char(10)  NOT NULL,
-    CONSTRAINT "PK3" PRIMARY KEY ("NO7"),
-    CONSTRAINT "CON2" FOREIGN KEY ("TEST", "COL1", "COL2")
-    REFERENCES "ST1"("TEST", "COL1", "COL2")
-)
-
-;
-
-INSERT INTO "ST3"
-( "TEST",
-  "COL1",
-  "COL2",
-  "NO7" ) 
-SELECT
-"TEST",
-"COL1",
-"COL2",
-"NO7"
-FROM "ST3_d2b4f8e4"
-
-;
-
-DROP TABLE "ST3_d2b4f8e4"
-
-;
-
-ALTER TABLE "ST2"
-    RENAME TO "ST2_85a185e7"
-
-;
-
-CREATE HYBRID TABLE "ST2"
-(
-    "GL"     char(10)      NOT NULL,
-    "NEW1"   number(10,0),
-    "NEW3"   char(10),
-    "ORDERS" char(10)      NOT NULL,
-    "TEST"   char(10)      NOT NULL,
-    "COL1"   char(10)      NOT NULL,
-    "COL2"   char(10)      NOT NULL,
-    CONSTRAINT "PK1" PRIMARY KEY ("GL", "ORDERS"),
-    FOREIGN KEY ("TEST", "COL1", "COL2")
-    REFERENCES "ST1"("TEST", "COL1", "COL2"),
-    CONSTRAINT "UNI2" UNIQUE ("NEW3")
-
-)
-
-;
-
-INSERT INTO "ST2"
-( "GL",
-  "NEW1",
-  "NEW3",
-  "ORDERS",
-  "TEST",
-  "COL1",
-  "COL2" ) 
-SELECT
-"GL",
-"NEW1",
-"NEW3",
-"ORDERS",
-"TEST",
-"COL1",
-"COL2"
-FROM "ST2_85a185e7"
-
-;
-
-DROP TABLE "ST2_85a185e7"
+DROP TABLE "Entity1_c4506822"
 
 ;
 
 -- Add Indexes SQL
 
 
-CREATE INDEX "NONPK1" ON "ST4"(VENDOR, TEST, COL1)
+CREATE INDEX "nonpk" ON "Entity1"(test1)
 
-;
-
-CREATE INDEX "NONPK" ON "ST2"(NEW1)
-
-;
-
--- Update Views SQL
-
-DROP VIEW "View5"
-;
-
-CREATE VIEW "View5" AS
-SELECT En.NEW1, En.NEW3
-FROM ST2 En
-;
-DROP VIEW "View6"
-;
-
-CREATE VIEW "View6" AS
-SELECT En.VENDOR
-FROM ST4 En
-;
-DROP VIEW "View7"
-;
-
-CREATE VIEW "View7" AS
-SELECT En.NO1
-FROM ST1 En
 ;

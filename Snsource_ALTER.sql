@@ -10,7 +10,7 @@ ALTER TABLE "Entity1"
 
 
 ALTER TABLE "Entity1"
-    RENAME TO "Entity1_c4506822"
+    RENAME TO "Entity1_c7862702"
 
 ;
 
@@ -31,11 +31,11 @@ INSERT INTO "Entity1"
 SELECT
 "B",
 test1
-FROM "Entity1_c4506822"
+FROM "Entity1_c7862702"
 
 ;
 
-DROP TABLE "Entity1_c4506822"
+DROP TABLE "Entity1_c7862702"
 
 ;
 

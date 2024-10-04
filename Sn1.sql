@@ -1,20 +1,22 @@
 --
 -- ER/Studio Data Architect SQL Code Generation
--- Project :      31508.DM1
+-- Project :      DATA MODEL
 --
--- Date Created : Monday, August 19, 2024 20:54:06
+-- Date Created : Friday, October 04, 2024 22:12:20
 -- Target DBMS : Snowflake
 --
 
 -- 
--- TABLE: "Entity1" 
+-- TABLE: PVSCHEMA."Entity1" 
 --
 
-CREATE TABLE "Entity1"(
-    "col2"  CHAR(10)    NOT NULL,
-    "col1"  CHAR(10),
-    "col3"  CHAR(10),
-    CONSTRAINT "PK1" PRIMARY KEY ("col2") NOT DEFERRABLE 
+CREATE TABLE PVSCHEMA."Entity1"(
+    "A"  CHAR(10)      NOT NULL,
+    "B"  BINARY(10),
+    "C"  CHAR(10),
+    CONSTRAINT "PK1" PRIMARY KEY ("A") ENFORCED ,
+    CONSTRAINT "uni"  UNIQUE ("B"),
+    CONSTRAINT "nonpk"  UNIQUE ("C")
 )
 ;
 
